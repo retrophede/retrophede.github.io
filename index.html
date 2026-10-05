@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#ffffff">
 <meta name="description" content="Projects and experiments by retrophede. Choose a tile and explore.">
-<link rel="icon" type="image/png" href="logo.png">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
 <link rel="preload" href="assets/fonts/EnkaDotGothic24.ttf" as="font" type="font/ttf" crossorigin>
 <title>retrophede — Project menu</title>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem('retrophede-theme')==='dark'?'dark':'light'}catch{document.documentElement.dataset.theme='light'};try{const colors={ocean:'#4390BD',violet:'#9383CD',rose:'#CF82AC',amber:'#C8A04F',mint:'#65AD95',coral:'#CB856D'};const key=localStorage.getItem('retrophede-color');document.documentElement.style.setProperty('--ui-accent',colors[key]||colors.ocean)}catch{}</script>
 <link rel="stylesheet" href="style.css">
 <script src="menu.js" defer></script>
 </head>
@@ -15,20 +16,21 @@
 <a class="skip" href="#projects">Skip to projects</a>
 <div class="shell">
 <header>
-<a class="brand" href="./" aria-label="retrophede home"><img src="logo.png" width="56" height="56" alt=""><span>retrophede<span class="brand-dot">.</span></span></a>
-<div class="system"><button id="sound" type="button" aria-pressed="false" aria-label="Enable interface sounds"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 9h4l5-4v14l-5-4H3zM16 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></svg><span id="sound-label">Sound off</span></button><span class="status-light" title="Ready" aria-label="Ready"></span></div>
+<a class="brand" href="./" aria-label="retrophede home"><img src="assets/logo.svg" width="56" height="56" alt=""><span>retrophede<span class="brand-dot">.</span></span></a>
+<div class="system"><div class="console-clock" aria-label="Rome local time"><div><time id="rome-date"></time><time id="rome-time"></time></div><span id="rome-zone">ROMA / Europe/Rome</span></div><button id="sound" type="button" aria-pressed="false" aria-label="Enable interface sounds"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 9h4l5-4v14l-5-4H3zM16 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></svg><span id="sound-label">Sound off</span></button><button id="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Dark mode"><span class="theme-track" aria-hidden="true"><svg class="theme-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 1v3m0 16v3M1 12h3m16 0h3M4 4l2 2m12 12l2 2M4 20l2-2M18 6l2-2"/></svg><svg class="theme-moon" viewBox="0 0 24 24"><path d="M20 15A9 9 0 0 1 9 4a9 9 0 1 0 11 11Z"/></svg><span class="theme-knob"></span></span><span id="theme-label">Light</span></button><label class="palette-control"><span class="sr-only">UI secondary color</span><span class="palette-chip" aria-hidden="true"></span><select id="ui-color" aria-label="UI secondary color"><option value="ocean">Ocean blue</option><option value="violet">Soft violet</option><option value="rose">Rose pink</option><option value="amber">Warm amber</option><option value="mint">Mint green</option><option value="coral">Coral orange</option></select></label><span class="status-light" title="Ready" aria-label="Ready"></span></div>
 </header>
 <main>
 <section class="intro" aria-labelledby="title"><p class="eyebrow">Personal collection / 01</p><h1 id="title">Pick a little world.</h1><p>Projects, experiments, and things I make.</p></section>
 <section class="menu" aria-labelledby="projects-title">
-<div class="menu-bar"><h2 id="projects-title">Project menu</h2><span>01 available</span></div>
-<div id="projects" class="tiles">
-<a class="tile" href="/near-100/" data-title="NEAR / 100" data-description="The Sun and 99 nearby stars. Explore our corner of the universe in 3D." aria-describedby="near-description">
+<div class="menu-bar"><div class="menu-location"><button id="folder-back" type="button" hidden aria-label="Back to project menu">◀ Back</button><h2 id="projects-title">Project menu</h2></div><span id="item-count">01 folder</span></div>
+<div class="carousel-stage"><div class="bubble-space"><div class="description-panel" aria-hidden="true"><span class="panel-marker" aria-hidden="true"></span><div id="selection" aria-live="polite" aria-atomic="true"><h3 id="selection-title">Choose a project</h3><p id="selection-description">Move to a tile to see what's inside.</p></div><span class="launch-hint" aria-hidden="true">A / Open</span></div>
+</div><div id="projects" class="tiles" tabindex="0" role="region" aria-label="Projects, scroll horizontally">
+<a class="tile" href="https://retrophede.github.io/near-100/" data-title="NEAR / 100" data-description="The Sun and 99 nearby stars. Explore our corner of the universe in 3D." aria-describedby="near-description">
 <span class="tile-screen"><img src="near-preview.svg" width="900" height="620" alt="Stars in the solar neighbourhood"></span><span class="tile-label">NEAR / 100</span><span class="tile-index" aria-hidden="true">01</span><span class="selector" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
 </a>
 <div class="empty-slot" aria-hidden="true"><span>+</span></div><div class="empty-slot" aria-hidden="true"><span>+</span></div><div class="empty-slot" aria-hidden="true"><span>+</span></div><div class="empty-slot" aria-hidden="true"><span>+</span></div><div class="empty-slot" aria-hidden="true"><span>+</span></div>
 </div>
-<div class="description-panel"><span class="panel-marker" aria-hidden="true"></span><div id="selection" aria-live="polite" aria-atomic="true"><h3 id="selection-title">Choose a project</h3><p id="selection-description">Move to a tile to see what's inside.</p></div><span class="launch-hint" aria-hidden="true">A / Open</span></div>
+</div><div class="scroll-console" aria-label="Project menu navigation"><button id="previous" type="button" aria-label="Scroll projects left">◀</button><div class="scroll-track"><input id="page-scroll" type="range" min="0" max="1000" value="0" aria-label="Horizontal project position" aria-controls="projects"></div><button id="next" type="button" aria-label="Scroll projects right">▶</button></div>
 <p class="instructions"><span>Hover to select · Click to explore</span><span>Tab + Enter work too</span></p>
 <p id="near-description" class="sr-only">The Sun and 99 nearby stars. Explore our corner of the universe in 3D.</p>
 </section>
